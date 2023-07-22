@@ -9,6 +9,9 @@ class homepage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        drawer: Drawer(
+          child: SafeArea(child: Text("1st Option")),
+        ),
         appBar: AppBar(
           title: Text("Today is $day"),
         ),
