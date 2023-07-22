@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/homepage.dart';
 
 void main() {
   runApp(sonu());
@@ -9,13 +10,6 @@ class sonu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello World"),
-        ),
-      ),
-    );
+    return homepage();
   }
 }
