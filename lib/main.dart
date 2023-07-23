@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/homepage.dart';
+import 'package:flutter_application_1/Screens/homeScreen.dart';
+import 'package:flutter_application_1/Screens/loginScreen.dart';
 
 void main() {
   runApp(sonu());
@@ -10,6 +11,14 @@ class sonu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return homepage();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      //home: homescreen(),
+      initialRoute: "/login",
+      routes: {
+        "/":(context) => homescreen(),
+        "/login":(context) => loginscreen(),
+      },
+    );
   }
 }
