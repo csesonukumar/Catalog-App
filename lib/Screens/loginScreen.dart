@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 
 class loginscreen extends StatelessWidget {
   const loginscreen({super.key});
@@ -6,52 +7,63 @@ class loginscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Column(
-        children: [
-          Image.asset(
-            "assets/images/login.png",
-            fit: BoxFit.cover,
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            "Welcome",
-            style: TextStyle(
-              fontSize: 40,
+      color: Colors.white,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset(
+              "assets/images/login.png",
+              fit: BoxFit.cover,
+              height: 300,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Username",
-                    labelText: "Enter Username",
-                  ),
-                ),
-                TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: "Password",
-                    labelText: "Enter Password",
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    print("Day-4");
-                  },
-                  style: TextButton.styleFrom(),
-                  child: Text("Login"),
-                ),
-              ],
+            SizedBox(
+              height: 15,
             ),
-          ),
-        ],
+            Text(
+              "Welcome",
+              style: TextStyle(
+                fontSize: 40,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Username",
+                      labelText: "Enter Username",
+                    ),
+                  ),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                      labelText: "Enter Password",
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, Myroutes.homeroute);
+                    },
+                    style: ButtonStyle(
+                      minimumSize: MaterialStateProperty.all(Size(150.0, 60.0)),
+                    ),
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: 27.5,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
