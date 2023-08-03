@@ -13,7 +13,8 @@ class homescreen extends StatelessWidget {
           child: SafeArea(child: Text("1st Option")),
         ),
         appBar: AppBar(
-          title: Text("Today is $day"),
+          backgroundColor: Colors.black,
+          title: Text("Today is $day", style: TextStyle(color: Colors.white)),
         ),
       ),
     );
