@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screens/homeScreen.dart';
+import 'package:flutter_application_1/Screens/loginScreen.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 
 void main() {
   runApp(sonu());
@@ -11,11 +14,12 @@ class sonu extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello World"),
-        ),
-      ),
+      //home: homescreen(),
+      initialRoute: "login",
+      routes: {
+        Myroutes.homeroute:(context) => homescreen(),
+        Myroutes.loginroute:(context) => loginscreen(),
+      },
     );
   }
 }
