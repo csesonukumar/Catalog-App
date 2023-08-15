@@ -4,21 +4,21 @@ import 'package:flutter_application_1/Screens/loginScreen.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 
 void main() {
-  runApp(sonu());
+  runApp(const Sonu());
 }
 
-class sonu extends StatelessWidget {
-  const sonu({super.key});
+class Sonu extends StatelessWidget {
+  const Sonu({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //home: homescreen(),
-      initialRoute: "login",
+      initialRoute: "home",
       routes: {
-        Myroutes.homeroute:(context) => homescreen(),
-        Myroutes.loginroute:(context) => loginscreen(),
+        Myroutes.homeroute: (context) => homescreen(),
+        Myroutes.loginroute: (context) => LoginScreen(),
       },
     );
   }

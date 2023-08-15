@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 
-class loginscreen extends StatefulWidget {
-  const loginscreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<loginscreen> createState() => _loginscreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _loginscreenState extends State<loginscreen> {
+class _LoginScreenState extends State<LoginScreen> {
   String name = "";
   bool change = false;
   final _formkey = GlobalKey<FormState>();
@@ -19,8 +19,8 @@ class _loginscreenState extends State<loginscreen> {
       setState(() {
         change = true;
       });
-      await Future.delayed(Duration(seconds: 2));
-      await Navigator.pushNamed(context, Myroutes.homeroute);
+      await Future.delayed(const Duration(seconds: 2));
+      await Navigator.pushNamed(context,Myroutes.homeroute);
       setState(() {
         change = false;
       });
@@ -32,15 +32,15 @@ class _loginscreenState extends State<loginscreen> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text("Dream App", style: TextStyle(color: Colors.white))),
+          title: const Text("Dream App", style: TextStyle(color: Colors.white))),
       // color: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset("assets/images/login.png",
                 fit: BoxFit.cover, height: 300),
-            SizedBox(height: 15),
-            Text("Welcome $name", style: TextStyle(fontSize: 40)),
+            const SizedBox(height: 15),
+            Text("Welcome $name", style: const TextStyle(fontSize: 40)),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               child: Form(
@@ -54,7 +54,7 @@ class _loginscreenState extends State<loginscreen> {
                         }
                         return null;
                       },
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: "Username", labelText: "Enter Username"),
                       onChanged: (value) {
                         name = value;
@@ -65,16 +65,15 @@ class _loginscreenState extends State<loginscreen> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Please Enter Password";
-                          }
-                          else if(value.length<6){
+                          } else if (value.length < 6) {
                             return "Password is can not less Then 6 Character";
                           }
                           return null;
                         },
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: "Password", labelText: "Enter Password")),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
                     // ElevatedButton(
                     //   onPressed: () {
@@ -96,9 +95,12 @@ class _loginscreenState extends State<loginscreen> {
                       borderRadius: BorderRadius.circular(10),
                       child: InkWell(
                         //splashColor: Colors.green,
-                        onTap: () => movetohome(context),
+                        onTap: () {
+                          // firebase auth code here
+                          movetohome(context);
+                        },
                         child: AnimatedContainer(
-                          duration: Duration(seconds: 1),
+                          duration: const Duration(seconds: 1),
                           child: Container(
                             height: 50,
                             width: change ? 50 : 100,
@@ -110,8 +112,8 @@ class _loginscreenState extends State<loginscreen> {
                             // ),
 
                             child: change
-                                ? Icon(Icons.done, color: Colors.deepOrange)
-                                : Text("Login",
+                                ? const Icon(Icons.done, color: Colors.deepOrange)
+                                : const Text("Login",
                                     style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.white,
