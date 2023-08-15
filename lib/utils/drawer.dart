@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screens/loginScreen.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final imageurl =
-    //     "https://media.licdn.com/dms/image/C4D03AQFHSPhBwz-WBA/profile-displayphoto-shrink_800_800/0/1658643743953?e=2147483647&v=beta&t=WbIN_w9BouDjgZDLzixBvLn554xc8-vg_-bCqVJzYo4";
     return Drawer(
       child: Container(
         color: Colors.grey,
@@ -13,8 +12,8 @@ class MyDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-              accountName: Text('John Doe'),
-              accountEmail: Text('john.doe@example.com'),
+              accountName: Text('Sonu Kumar'),
+              accountEmail: Text('sonushivkr@gmail.com'),
               currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(
                     "https://media.licdn.com/dms/image/C4D03AQFHSPhBwz-WBA/profile-displayphoto-shrink_800_800/0/1658643743953?e=2147483647&v=beta&t=WbIN_w9BouDjgZDLzixBvLn554xc8-vg_-bCqVJzYo4"),
@@ -37,6 +36,10 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
                 // Handle item 1 tap
               },
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/drawer.dart';
+import 'package:flutter_application_1/utils/themes.dart';
 
 class homescreen extends StatelessWidget {
   const homescreen({super.key});
@@ -9,12 +10,13 @@ class homescreen extends StatelessWidget {
     String day = "Good Day";
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: MyTheme.LightTheme(context),
       home: Scaffold(
         drawer: MyDrawer(),
         appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text("Today is $day",
-              style: const TextStyle(color: Colors.white)),
+          title: Text(
+            "Today is $day",
+          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
