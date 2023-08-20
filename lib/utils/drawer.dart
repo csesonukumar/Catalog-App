@@ -11,7 +11,7 @@ class MyDrawer extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            UserAccountsDrawerHeader(
+            const UserAccountsDrawerHeader(
               accountName: Text('Sonu Kumar'),
               accountEmail: Text('sonushivkr@gmail.com'),
               currentAccountPicture: CircleAvatar(
@@ -23,11 +23,11 @@ class MyDrawer extends StatelessWidget {
               // ),
             ),
             ListTile(
-              leading: Icon(
+              leading: const Icon(
                 CupertinoIcons.home,
                 color: Colors.white,
               ),
-              title: Text(
+              title: const Text(
                 'Item 1',
                 textScaleFactor: 1.8,
                 style: TextStyle(
@@ -38,13 +38,13 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
                 );
                 // Handle item 1 tap
               },
             ),
             ListTile(
-              title: Text(
+              title: const Text(
                 'Item 2',
                 style: TextStyle(
                   color: Colors.white,

@@ -19,8 +19,8 @@ class Sonu extends StatelessWidget {
       //home: homescreen(),
       initialRoute: "login",
       routes: {
-        Myroutes.homeroute: (context) => homescreen(),
-        Myroutes.loginroute: (context) => LoginScreen(),
+        Myroutes.homeroute: (context) => const HomeScreen(),
+        Myroutes.loginroute: (context) => const LoginScreen(),
       },
     );
   }
