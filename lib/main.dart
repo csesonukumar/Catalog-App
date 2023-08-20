@@ -17,7 +17,7 @@ class Sonu extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MyTheme.LightTheme(context),
       //home: homescreen(),
-      initialRoute: "login",
+      initialRoute: "home",
       routes: {
         Myroutes.homeroute: (context) => const HomeScreen(),
         Myroutes.loginroute: (context) => const LoginScreen(),

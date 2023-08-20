@@ -1,13 +1,13 @@
 class CatelogModel {
-  static final items = [
-    Item(
-        id: 1,
-        name: "IPhone 12",
-        desc: "Iphone 12 5th gen",
-        price: 12500,
-        color: "#33505a",
-        imageurl:
-  "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90")
+  static List<Item> items = [
+    // Item(
+    //     id: 1,
+    //     name: "IPhone 12",
+    //     desc: "Iphone 12 5th gen",
+    //     price: 12500,
+    //     color: "#33505a",
+    //     imageurl:
+    //         "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90")
   ];
 }
 
@@ -26,4 +26,22 @@ class Item {
       required this.price,
       required this.color,
       required this.imageurl});
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
+        name: map["name"],
+        desc: map["desc"],
+        price: map["price"],
+        color: map["color"],
+        imageurl: map["imageurl"]);
+  }
+  tomap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "imageurl": imageurl
+      };
 }
