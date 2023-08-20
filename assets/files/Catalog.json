@@ -1,0 +1,49 @@
+{
+    "Items":[
+        {
+            "id": 1,
+            "name": "IPhone 12",
+            "desc": "Iphone 12 5th gen",
+            "price": 12500,
+            "color": "#33505a",
+            "imageurl":
+                    "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90"
+            },
+        {
+            "id": 2,
+            "name": "IPhone 13",
+            "desc": "Iphone 13 5th gen",
+            "price": 13500,
+            "color": "#33505a",
+            "imageurl":
+                    "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90"
+            },
+            {
+            "id": 3,
+            "name": "IPhone 14",
+            "desc": "Iphone 14 5th gen",
+            "price": 14500,
+            "color": "#33505a",
+            "imageurl":
+                    "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90"
+                },
+                {
+                "id": 4,
+                "name": "IPhone 15",
+                "desc": "Iphone 15 5th gen",
+                "price": 15500,
+                "color": "#33505a",
+                "imageurl":
+                        "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90"
+                    },
+                    {
+                    "id": 5,
+                    "name": "IPhone 16",
+                    "desc": "Iphone 16 5th gen",
+                    "price": 16500,
+                    "color": "#33505a",
+                    "imageurl":
+                            "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90"
+                        }
+    ]
+}
