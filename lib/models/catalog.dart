@@ -9,6 +9,10 @@ class CatelogModel {
     //     imageurl:
     //         "https://rukminim2.flixcart.com/image/850/1000/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcymhgjaghf.jpeg?q=90")
   ];
+
+  // Get Item by iD
+Item getById (int id) => items.firstWhere((element) => element.id==id,orElse: null);
+Item getByPosition(int pos) => items[pos];
 }
 
 class Item {

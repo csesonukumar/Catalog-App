@@ -15,6 +15,7 @@ class Sonu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       theme: MyTheme.LightTheme(context),
       //home: homescreen(),
