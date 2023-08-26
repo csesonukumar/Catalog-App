@@ -1,10 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/utils/drawer.dart';
 import 'package:flutter_application_1/utils/item_wiget.dart';
 import 'package:flutter_application_1/utils/themes.dart';
-import 'dart:convert';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,135 +50,158 @@ class _HomeScreenState extends State<HomeScreen> {
       debugShowCheckedModeBanner: false,
       theme: MyTheme.LightTheme(context),
       home: Scaffold(
-          drawer: MyDrawer(),
-          appBar: AppBar(
-            title: Text(
-              "Today is $day",
+        backgroundColor: Color.fromARGB(255, 237, 231, 231),
+        body: SafeArea(
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(13.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CatelogHeader(),
+                  (CatelogModel.items != null && CatelogModel.items.isNotEmpty)
+                      ? Expanded(child: catelogList())
+                      : Center(
+                          child: CircularProgressIndicator(),
+                        )
+                ],
+              ),
             ),
           ),
-          body: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 10,
-                ),
-                itemBuilder: (context, index) {
-                  final Item = CatelogModel.items[index];
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                    clipBehavior: Clip.antiAlias,
-                    child: GridTile(
-                      child: Image.network(Item.imageurl),
-                      header: Container(
-                          padding: EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: Colors.deepPurple,
-                          ),
-                          child: Text(
-                            Item.name,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          )),
-                      footer: Text(Item.price.toString()),
-                    ),
-                  );
-                },
-                itemCount: CatelogModel.items.length,
-              )
-              // (CatelogModel.items != null && CatelogModel.items.isNotEmpty)?ListView.builder(
-              //   itemCount: CatelogModel.items.length,
-              //   itemBuilder: (context, index) {
-              //     return ItemWiget(
-              //       item: CatelogModel.items[index],
-              //     );
-              //   },
-              // ):Center(child: CircularProgressIndicator(),),
-              )
-          //SingleChildScrollView(
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       // SizedBox(
-          //       //   height: 300,
-          //       // ),
-          //       // Row(
-          //       //   mainAxisAlignment: MainAxisAlignment.center,
-          //       //   children: [
-          //       //     Column(
-          //       //       mainAxisAlignment: MainAxisAlignment.center,
-          //       //       crossAxisAlignment: CrossAxisAlignment.center,
-          //       //       children: [
-          //       //         Container(
-          //       //             height: 100,
-          //       //             width: 100,
-          //       //             decoration: const BoxDecoration(
-          //       //               borderRadius:
-          //       //                   BorderRadius.only(topLeft: Radius.circular(10)),
-          //       //               color: Color.fromARGB(255, 13, 194, 235),
-          //       //             )),
-          //       //         const SizedBox(
-          //       //           height: 5,
-          //       //         ),
-          //       //         Container(
-          //       //           height: 100,
-          //       //           width: 100,
-          //       //           decoration: const BoxDecoration(
-          //       //             borderRadius: BorderRadius.only(
-          //       //                 bottomLeft: Radius.circular(10)),
-          //       //             color: Color.fromARGB(255, 13, 194, 235),
-          //       //           ),
-          //       //         ),
-          //       //       ],
-          //       //     ),
-          //       //     const SizedBox(
-          //       //       width: 5,
-          //       //     ),
-          //       //     Column(
-          //       //       mainAxisAlignment: MainAxisAlignment.center,
-          //       //       crossAxisAlignment: CrossAxisAlignment.center,
-          //       //       children: [
-          //       //         Container(
-          //       //           height: 100,
-          //       //           width: 100,
-          //       //           decoration: const BoxDecoration(
-          //       //             borderRadius:
-          //       //                 BorderRadius.only(topRight: Radius.circular(10)),
-          //       //             color: Color.fromARGB(255, 13, 194, 235),
-          //       //           ),
-          //       //         ),
-          //       //         const SizedBox(
-          //       //           height: 5,
-          //       //         ),
-          //       //         Container(
-          //       //           height: 100,
-          //       //           width: 100,
-          //       //           decoration: const BoxDecoration(
-          //       //             borderRadius: BorderRadius.only(
-          //       //                 bottomRight: Radius.circular(10)),
-          //       //             color: Color.fromARGB(255, 13, 194, 235),
-          //       //           ),
-          //       //         ),
-          //       //       ],
-          //       //     )
-          //       //   ],
-          //       // ),
-          //       Text("data"),
-          //       ListView.builder(
-          //         itemCount: CatelogModel.items.length,
-          //         itemBuilder: (context, index) {
-          //           return ItemWiget(
-          //             item: CatelogModel.items[index],
-          //           );
-          //         },
-          //       )
-          //     ],
-          //   ),
-          // ),
+        ),
+      ),
+    );
+  }
+}
+
+class CatelogHeader extends StatelessWidget {
+  const CatelogHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Catalog App",
+          style: TextStyle(
+            color: Colors.deepPurple,
+            fontWeight: FontWeight.bold,
+            fontSize: 40,
           ),
+        ),
+        Text(
+          "Trending Products",
+          style: TextStyle(
+            color: Colors.deepPurple,
+            fontSize: 20,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class catelogList extends StatelessWidget {
+  const catelogList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: CatelogModel.items.length,
+      itemBuilder: (context, index) {
+        final catelog = CatelogModel.items[index];
+        return CatelogItem(catelog: catelog);
+      },
+    );
+  }
+}
+
+class CatelogItem extends StatelessWidget {
+  final Item catelog;
+  const CatelogItem({
+    Key? key,
+    required this.catelog,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 248, 242, 242),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        height: 150,
+        width: 150,
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(23),
+                  color: Color.fromRGBO(176, 177, 175, 1),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Image.network(catelog.imageurl),
+                ),
+              ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  catelog.name,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.deepPurple,
+                  ),
+                ),
+                Text(
+                  catelog.desc,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  // width: 100,
+                  height: 10,
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.spaceBetween,
+                  buttonPadding: EdgeInsets.all(20),
+                  children: [
+                    Text(
+                      "\$${catelog.price}",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 15.0),
+                        backgroundColor: Colors.deepPurpleAccent,
+                        shape: StadiumBorder(),
+                      ),
+                      onPressed: () {},
+                      child: Text("Buy"),
+                    ),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }

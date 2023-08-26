@@ -16,7 +16,9 @@ class ItemWiget extends StatelessWidget {
       color: const Color.fromARGB(255, 236, 232, 232),
       shadowColor: Colors.black,
       child: ListTile(
-        leading: Image.network(item.imageurl),
+        leading: SizedBox( height: 30,
+            width: 20,
+            child: Image.network(item.imageurl)),
         title: Text(item.name),
         subtitle: Text(item.desc),
         trailing: Text("\$${item.price}",
