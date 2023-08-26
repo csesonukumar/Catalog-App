@@ -73,12 +73,12 @@ class CatelogItem extends StatelessWidget {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 15.0),
+                            horizontal: 10.0, vertical: 15.0),
                         backgroundColor: Colors.deepPurpleAccent,
                         shape: StadiumBorder(),
                       ),
                       onPressed: () {},
-                      child: Text("Buy"),
+                      child: Text("Add to Cart"),
                     ),
                   ],
                 ),

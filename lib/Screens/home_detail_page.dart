@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -13,6 +14,7 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       bottomNavigationBar: Container(
         color: Color.fromARGB(255, 221, 239, 151),
         child: ButtonBar(
@@ -28,13 +30,12 @@ class HomeDetailsPage extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 15.0),
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
                 backgroundColor: Colors.deepPurpleAccent,
                 shape: StadiumBorder(),
               ),
               onPressed: () {},
-              child: Text("Buy"),
+              child: Text("Add to Cart"),
             ),
           ],
         ),
@@ -54,9 +55,9 @@ class HomeDetailsPage extends StatelessWidget {
             ),
             Expanded(
                 child: Container(
-                  padding: EdgeInsets.all(20),
-             // width: context.screenWidth,
-                    width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.all(20),
+              // width: context.screenWidth,
+              width: MediaQuery.of(context).size.width,
               color: Color.fromARGB(255, 221, 239, 151),
               child: Column(
                 children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screens/cart_page.dart';
 import 'package:flutter_application_1/Screens/homeScreen.dart';
 import 'package:flutter_application_1/Screens/loginScreen.dart';
 import 'package:flutter_application_1/utils/routes.dart';
@@ -17,10 +18,11 @@ class Sonu extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MyTheme.LightTheme(context),
       //home: homescreen(),
-      initialRoute: "home",
+      initialRoute: "login",
       routes: {
         Myroutes.homeroute: (context) => const HomeScreen(),
         Myroutes.loginroute: (context) => const LoginScreen(),
+        Myroutes.CartPage:(context) => const CartPage(),
       },
     );
   }

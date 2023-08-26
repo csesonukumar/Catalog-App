@@ -1,10 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/home_wigets/catalog_header.dart';
 import 'package:flutter_application_1/home_wigets/catalog_list.dart';
 import 'package:flutter_application_1/models/catalog.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/utils/themes.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -49,6 +51,12 @@ class _HomeScreenState extends State<HomeScreen> {
       debugShowCheckedModeBanner: false,
       theme: MyTheme.LightTheme(context),
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, Myroutes.CartPage);
+          },
+          child: Icon(CupertinoIcons.cart),
+        ),
         backgroundColor: Color.fromARGB(255, 237, 231, 231),
         body: SafeArea(
           child: Container(
