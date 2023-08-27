@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/centralized.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -28,15 +29,7 @@ class HomeDetailsPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-                backgroundColor: Colors.deepPurpleAccent,
-                shape: StadiumBorder(),
-              ),
-              onPressed: () {},
-              child: Text("Add to Cart"),
-            ),
+            _AddtoCart(),
           ],
         ),
       ),
@@ -58,7 +51,8 @@ class HomeDetailsPage extends StatelessWidget {
               padding: EdgeInsets.all(20),
               // width: context.screenWidth,
               width: MediaQuery.of(context).size.width,
-              color: Color.fromARGB(255, 221, 239, 151),
+              // color: Color.fromARGB(255, 221, 239, 151),
+              color: color1,
               child: Column(
                 children: [
                   Text(
@@ -92,4 +86,34 @@ class HomeDetailsPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class _AddtoCart extends StatefulWidget {
+  const _AddtoCart({super.key});
+
+  @override
+  State<_AddtoCart> createState() => __AddtoCartState();
+}
+
+class __AddtoCartState extends State<_AddtoCart> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+
+    return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                backgroundColor: Colors.deepPurpleAccent,
+                shape: StadiumBorder(),
+              ),
+              onPressed: () {
+                isAdded = isAdded.toggle();
+              },
+              child: isAdded ? Icon(Icons.done): customText("Add to Cart", 20.0, color1),
+            );
+  }
+}
+
+extension VxxxBoolExtension on bool {
+  bool tooggle() => !this;
 }
